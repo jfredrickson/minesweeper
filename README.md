@@ -9,3 +9,5 @@ This contains all the game logic, and is UI-agnostic.
 Currently, a HTML5 Canvas user interface example is included and the game
 can be played using this UI by opening `minesweeper.canvas.html` in a web
 browser.
+
+[See the demo!](http://jfredrickson.github.com/minesweeper/minesweeper.canvas.html)
