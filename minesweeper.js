@@ -191,11 +191,11 @@ Minesweeper.prototype.reveal = function (x, y) {
   if (!this.inProgress) return;
   
   if (this.board[x][y].mined) {
-    this.endGame(x, y);
+    this.endGame(x, y, false);
   } else {
     this.checkReveal(x, y);
     if (this.checkComplete()) {
-      this.endGame(x, y);
+      this.endGame(x, y, true);
     }
   }
 };
@@ -205,22 +205,20 @@ Minesweeper.prototype.reveal = function (x, y) {
  *
  * @param X coordinate of last reveal
  * @param Y coordinate of last reveal
+ * @param Boolean indicating whether or not the game is a win
  */
-Minesweeper.prototype.endGame = function (lastX, lastY) {
-  var win = true;
+Minesweeper.prototype.endGame = function (lastX, lastY, win) {
   var x, y;
   for (x = 0; x < this.settings.width ; x++) {
     for (y = 0; y < this.settings.height ; y++) {
       if (this.board[x][y].mined && this.board[x][y].state !== this.FLAGGED) {
         this.board[x][y].state = this.MINED;
-        win = false;
       }
       if (this.board[x][y].mined && this.board[x][y].state === this.FLAGGED) {
         this.board[x][y].state = this.CORRECT_MINE;
       }
       if (!this.board[x][y].mined && this.board[x][y].state === this.FLAGGED) {
         this.board[x][y].state = this.INCORRECT_MINE;
-        win = false;
       }
     }
   }
