@@ -22,6 +22,13 @@ function drawBoard(x, y, containerId) {
   var canvas = document.createElement("canvas");
   var status = document.createElement("div");
   
+  if (document.getElementById("board")) {
+    target.removeChild(document.getElementById("board"));
+  }
+  if (document.getElementById("status")) {
+    target.removeChild(document.getElementById("status"));
+  }
+  
   canvas.id = "board";
   canvas.width = x * SQUARE_SIZE;
   canvas.height = y * SQUARE_SIZE;
