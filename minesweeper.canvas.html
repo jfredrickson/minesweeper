@@ -9,6 +9,13 @@
   <h1>Minesweeper</h1>
   <p>This is the HTML5 Canvas demo of Minesweeper.  It requires a browser that has HTML5 canvas support.  If you don't see anything below, your browser does not have it.</p>
   <p>Click to reveal a location. Right-click to flag, mark, or unmark/unflag a location.</p>
+  <div id="difficulty">
+    <p>Start new game:
+      <a href="#" id="beginner" onclick="minesweeper('minesweeper', 'beginner');">Beginner</a>
+      <a href="#" id="beginner" onclick="minesweeper('minesweeper', 'intermediate');">Intermediate</a>
+      <a href="#" id="beginner" onclick="minesweeper('minesweeper', 'expert');">Expert</a>
+    </p>
+  </div>
   <div id="minesweeper"></div>
   <script type="text/javascript">minesweeper("minesweeper", "beginner");</script>
 </body>
