@@ -124,12 +124,35 @@ function draw(squareX, squareY, type) {
   }
   
   if (type === DRAW_INCORRECT) {
+    // Flagpole
+    board.ctx.strokeStyle = "black";
     board.ctx.beginPath();
-    board.ctx.arc(x + SQUARE_SIZE/2, y + SQUARE_SIZE/2, 6, 0, 2 * Math.PI, false);
+    board.ctx.moveTo(x + 20, y + 25);
+    board.ctx.lineTo(x + 20, y + 5);
+    board.ctx.closePath();
+    board.ctx.stroke();
+    // Flag
     board.ctx.fillStyle = "red";
+    board.ctx.strokeStyle = "red";
+    board.ctx.beginPath();
+    board.ctx.moveTo(x + 20, y + 5);
+    board.ctx.lineTo(x + 10, y + 9);
+    board.ctx.lineTo(x + 20, y + 13);
+    board.ctx.closePath();
+    board.ctx.stroke();
     board.ctx.fill();
-    board.ctx.fillStyle = "black";
-    board.ctx.fillText("X", x + SQUARE_SIZE/2, y + SQUARE_SIZE/2);
+    // X
+    board.ctx.strokeStyle = "black";
+    board.ctx.beginPath();
+    board.ctx.moveTo(x + 5, y + 5);
+    board.ctx.lineTo(x + 25, y + 25);
+    board.ctx.closePath();
+    board.ctx.stroke();
+    board.ctx.beginPath();
+    board.ctx.moveTo(x + 25, y + 5);
+    board.ctx.lineTo(x + 5, y + 25);
+    board.ctx.closePath();
+    board.ctx.stroke();
   }
   
   if (type === DRAW_RANDOM) {
